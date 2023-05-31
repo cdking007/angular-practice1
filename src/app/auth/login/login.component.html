@@ -1,0 +1,41 @@
+<div class="auth-form">
+  <div class="auth-form__container">
+    <mat-card>
+      <mat-card-title>Login</mat-card-title>
+      <br />
+      <form [formGroup]="authForm" (ngSubmit)="onAuthFormSubmit()">
+        <mat-card-content>
+          <app-input
+            label="Email"
+            [control]="authForm.controls.email"
+            postFixIcon="email"
+            inputType="email"
+          >
+          </app-input>
+          <app-input
+            label="Password"
+            [control]="authForm.controls.password"
+            postFixIcon="key"
+            inputType="password"
+          >
+            <a routerLink="/auth/forget" matTextSuffix>Forget</a>
+          </app-input>
+          <button
+            type="submit"
+            mat-raised-button
+            color="primary"
+            class="full-width-field"
+          >
+            Login
+          </button>
+        </mat-card-content>
+      </form>
+      <mat-card-actions>
+        <div class="full-width-field u-text-center">
+          <p>new to website? <a href="/auth/signup">signup now</a></p>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+    <router-outlet></router-outlet>
+  </div>
+</div>

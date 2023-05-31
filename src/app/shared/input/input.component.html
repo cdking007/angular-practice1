@@ -1,0 +1,11 @@
+<mat-form-field class="full-width-field" appearance="outline" fullWidth>
+  <mat-icon matPrefix *ngIf="postFixIcon">{{ postFixIcon }}</mat-icon>
+  <mat-label>{{ label }}</mat-label>
+  <input [formControl]="control" [type]="inputType" matInput />
+  <div matTextSuffix>
+    <ng-content selector="[matTextPrefix]"> </ng-content>
+  </div>
+  <mat-error *ngIf="getErrorLengths() > 0">{{
+    errorMessageBuilder(control.errors)
+  }}</mat-error>
+</mat-form-field>
