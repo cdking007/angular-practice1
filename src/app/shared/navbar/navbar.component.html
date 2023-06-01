@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>Authentify</span>
+        <div class="fill-remaining-space"></div>
+        <div class="nav__space">
+            <p>
+                <!-- {{ (user$|async).user | json }} -->
+            </p>
+            <ng-container *ngIf="!(user$ | async).isAuthenticated; else loginUser">
+                <a routerLink="/auth/login" mat-raised-button>Login</a>
+            <a routerLink="/auth/signup" mat-raised-button>signup</a>
+            <a routerLink="/admin" mat-raised-button>Admin</a>
+            </ng-container>
+            <ng-template #loginUser>
+                <button mat-raised-button (click)="onLogout()">Logout</button>
+                <a routerLink="/admin" mat-raised-button>Profile</a>
+            </ng-template>
+        </div>
+      </mat-toolbar-row>
+      
+</mat-toolbar>
